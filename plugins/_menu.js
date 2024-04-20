@@ -15,22 +15,19 @@ bot.addCommand(
       return 0
     })
     const date = new Date()
-    let CMD_HELP = `╭────────────────╮
-						ʟᴇᴠᴀɴᴛᴇʀ
-╰────────────────╯
+    let CMD_HELP = `--- 𝐏𝐈𝐀𝐍-𝐌𝐃 ---
 
-╭────────────────
-│ Prefix : ${PREFIX}
-│ User : ${message.pushName}
-│ Time : ${date.toLocaleTimeString()}
-│ Day : ${date.toLocaleString('en', { weekday: 'long' })}
-│ Date : ${date.toLocaleDateString('hi')}
-│ Version : ${VERSION}
-│ Plugins : ${PLUGINS.count}
-│ Ram : ${getRam()}
-│ Uptime : ${getUptime('t')}
-╰────────────────
-╭────────────────
+⤷ Prefix : ${PREFIX}
+⤷ User : ${message.pushName}
+⤷ Time : ${date.toLocaleTimeString()}
+⤷ Day : ${date.toLocaleString('en', { weekday: 'long' })}
+⤷ Date : ${date.toLocaleDateString('hi')}
+⤷ Version : ${VERSION}
+⤷ Plugins : ${PLUGINS.count}
+⤷ Ram : ${getRam()}
+⤷ Uptime : ${getUptime('t')}
+
+
 `
     sorted.map(async (command, i) => {
       if (command.dontAddCommandList === false && command.pattern !== undefined) {
@@ -41,8 +38,8 @@ bot.addCommand(
       }
     })
 
-    CMD_HELP += `╰────────────────`
-    return await message.send('```' + CMD_HELP + '```')
+    CMD_HELP += `                       `
+    return await message.send(' ' + CMD_HELP + ' ')
   }
 )
 
@@ -65,7 +62,7 @@ bot.addCommand(
         msg += `${index + 1} ${command.name}\n${command.desc}\n\n`
       }
     })
-    await message.send('```' + msg.trim() + '```')
+    await message.send('⤷' + msg.trim() + ' ')
   }
 )
 bot.addCommand(
@@ -86,33 +83,30 @@ bot.addCommand(
       }
     })
     const date = new Date()
-    let msg = `\`\`\`╭═══ LEVANTER ═══⊷
-┃❃╭──────────────
-┃❃│ Prefix : ${PREFIX}
-┃❃│ User : ${message.pushName}
-┃❃│ Time : ${date.toLocaleTimeString()}
-┃❃│ Day : ${date.toLocaleString('en', { weekday: 'long' })}
-┃❃│ Date : ${date.toLocaleDateString('hi')}
-┃❃│ Version : ${VERSION}
-┃❃│ Plugins : ${PLUGINS.count}
-┃❃│ Ram : ${getRam()}
-┃❃│ Uptime : ${getUptime('t')}
-┃❃╰───────────────
-╰═════════════════⊷\`\`\`\n`
+    let msg =   --- 𝐏𝐈𝐀𝐍-𝐌𝐃 --- 
+⤷ Prefix : ${PREFIX}
+⤷ User : ${message.pushName}
+⤷ Time : ${date.toLocaleTimeString()}
+⤷ Day : ${date.toLocaleString('en', { weekday: 'long' })}
+⤷ Date : ${date.toLocaleDateString('hi')}
+⤷ Version : ${VERSION}
+⤷ Plugins : ${PLUGINS.count}
+⤷ Ram : ${getRam()}
+⤷ Uptime : ${getUptime('t')}n`
 
     if (match && commands[match]) {
-      msg += ` ╭─❏ ${textToStylist(match.toLowerCase(), 'smallcaps')} ❏\n`
+      msg += ` ⤷${textToStylist(match.toLowerCase(), 'smallcaps')} \n`
       for (const plugin of commands[match])
-        msg += ` │ ${textToStylist(plugin.toUpperCase(), 'mono')}\n`
-      msg += ` ╰─────────────────`
+        msg += `  ${textToStylist(plugin.toUpperCase(), 'mono')}\n`
+      msg += ` `
 
       return await message.send(msg)
     }
     for (const command in commands) {
-      msg += ` ╭─❏ ${textToStylist(command.toLowerCase(), 'smallcaps')} ❏\n`
+      msg += `  ${textToStylist(command.toLowerCase(), 'smallcaps')} \n`
       for (const plugin of commands[command])
-        msg += ` │ ${textToStylist(plugin.toUpperCase(), 'mono')}\n`
-      msg += ` ╰─────────────────\n`
+        msg += `  ${textToStylist(plugin.toUpperCase(), 'mono')}\n`
+      msg += `⤷n`
     }
     await message.send(msg.trim())
   }
